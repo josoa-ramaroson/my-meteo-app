@@ -1,0 +1,132 @@
+[
+    {
+        "location": "New York",
+        "datetime": "2024-06-24T00:00:00Z",
+        "temperature": 25,
+        "temperatureMax": 30,
+        "temperatureMin": 20,
+        "humidity": 60,
+        "precipitation": 0.2,
+        "windSpeed": 10,
+        "uvindex": 7,
+        "sunrise": "2024-06-24T05:30:00Z",
+        "sunset": "2024-06-24T20:45:00Z",
+        "condition": "sunny day",
+        "icon": "sunny.png",
+        "hourly": [
+            {
+                "time": "00:00",
+                "temperature": 20,
+                "precipitation": 0.1,
+                "windSpeed": 5,
+                "condition": "clear night",
+                "icon": "clear.png"
+            },
+            {
+                "time": "01:00",
+                "temperature": 19,
+                "precipitation": 0.1,
+                "windSpeed": 5,
+                "condition": "clear night",
+                "icon": "clear.png"
+            }
+        ],
+        "tenDayForecast": [
+            {
+                "location": "New York",
+                "datetime": "2024-06-25T00:00:00Z",
+                "temperature": 26,
+                "temperatureMax": 31,
+                "temperatureMin": 21,
+                "humidity": 55,
+                "precipitation": 0.1,
+                "windSpeed": 8,
+                "uvindex": 8,
+                "sunrise": "2024-06-25T05:30:00Z",
+                "sunset": "2024-06-25T20:45:00Z",
+                "condition": "partly cloudy day",
+                "icon": "partly_cloudy.png"
+            },
+            {
+                "location": "New York",
+                "datetime": "2024-06-26T00:00:00Z",
+                "temperature": 24,
+                "temperatureMax": 29,
+                "temperatureMin": 19,
+                "humidity": 65,
+                "precipitation": 0.3,
+                "windSpeed": 12,
+                "uvindex": 6,
+                "sunrise": "2024-06-26T05:30:00Z",
+                "sunset": "2024-06-26T20:45:00Z",
+                "condition": "rain day",
+                "icon": "rain.png"
+            }
+        ]
+    },
+    {
+        "location": "Los Angeles",
+        "datetime": "2024-06-24T00:00:00Z",
+        "temperature": 28,
+        "temperatureMax": 34,
+        "temperatureMin": 22,
+        "humidity": 50,
+        "precipitation": 0,
+        "windSpeed": 6,
+        "uvindex": 9,
+        "sunrise": "2024-06-24T05:45:00Z",
+        "sunset": "2024-06-24T20:15:00Z",
+        "condition": "sunny day",
+        "icon": "sunny.png",
+        "hourly": [
+            {
+                "time": "00:00",
+                "temperature": 22,
+                "precipitation": 0,
+                "windSpeed": 4,
+                "condition": "clear night",
+                "icon": "clear.png"
+            },
+            {
+                "time": "01:00",
+                "temperature": 21,
+                "precipitation": 0,
+                "windSpeed": 4,
+                "condition": "clear night",
+                "icon": "clear.png"
+            }
+        ],
+        "tenDayForecast": [
+            {
+                "location": "Los Angeles",
+                "datetime": "2024-06-25T00:00:00Z",
+                "temperature": 29,
+                "temperatureMax": 35,
+                "temperatureMin": 23,
+                "humidity": 45,
+                "precipitation": 0,
+                "windSpeed": 7,
+                "uvindex": 10,
+                "sunrise": "2024-06-25T05:45:00Z",
+                "sunset": "2024-06-25T20:15:00Z",
+                "condition": "sunny day",
+                "icon": "sunny.png"
+            },
+            {
+                "location": "Los Angeles",
+                "datetime": "2024-06-26T00:00:00Z",
+                "temperature": 27,
+                "temperatureMax": 33,
+                "temperatureMin": 21,
+                "humidity": 55,
+                "precipitation": 0,
+                "windSpeed": 5,
+                "uvindex": 8,
+                "sunrise": "2024-06-26T05:45:00Z",
+                "sunset": "2024-06-26T20:15:00Z",
+                "condition": "partly cloudy day",
+                "icon": "partly_cloudy.png"
+            }
+        ]
+    }
+]
