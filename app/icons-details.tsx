@@ -4,7 +4,7 @@ import { TWeatherCard } from "./types";
 
 // Weather images object
 const weatherCardImages: TWeatherCard = {
-    precipitation: require('./assets/precipitation.png'),
+    rain: require('./assets/precipitation.png'),
     humidity: require('./assets/humidity.png'),
     'wind speed': require('./assets/wind_speed.png'),
     pressure: require('./assets/pressure.png'),

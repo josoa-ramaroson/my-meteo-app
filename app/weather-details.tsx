@@ -13,7 +13,7 @@ export default function WeatherDetails(props: TProps) {
 
   return (
     <View>
-      <View className="flex-row flex-wrap items-center justify-center  pl-1">
+      <View className="flex-row flex-wrap items-center justify-center pl-1">
         {
           details.map((data, index) => <WeatherDetailsCards
             key={index}

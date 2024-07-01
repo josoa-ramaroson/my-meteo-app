@@ -12,7 +12,7 @@ export default function CustomHeader({ address }: TCustomHeader) {
 
 
     return (
-        <View className="flex-row">
+        <View className="flex-row bg-white shadow-lg shadow-gray-400">
             <TouchableOpacity 
             onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
             className="flex items-center justify-center p-2"

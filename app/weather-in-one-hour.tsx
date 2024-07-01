@@ -1,28 +1,36 @@
 import { View, Text, Image } from 'react-native'
-import React from 'react'
-import { TWeatherHourly } from './types'
+import React from 'react' 
 import weatherImages from './icons-conditions';
 import { weatherCardImages } from './icons-details';
+import { THourlyWeather } from './types';
+import { getLocalTimeHHMM } from './functions';
 
+type TProps = {
+data: THourlyWeather
 
+timeZoneOffset: number;
+}
 
-export default function WeatherInOneHour(props: TWeatherHourly) {
+export default function WeatherInOneHour(props: TProps) {
 
-    const { hour, condition, precipitation, temperature } = props;
+    const {data, timeZoneOffset} = props;
+    const { datetime, condition, temperature, humidity, icon } = data;
+    const hour = getLocalTimeHHMM(datetime, timeZoneOffset)
+    
     return (
         <View className="items-center gap-1 w-24">
             <Text>{hour}</Text>
             <Image
-                source={weatherImages[condition]}
+                source={weatherImages[icon]}
                 className="h-10 w-10"
             />
             <Text className="text-lg">{temperature} °</Text>
             <View className="flex-row items-center gap-1">
                 <Image
-                    source={weatherCardImages['precipitation']}
+                    source={weatherCardImages['humidity']}
                     className="w-6 h-6"
                 />
-                <Text>{precipitation}</Text>
+                <Text>{humidity}%</Text>
             </View>
         </View>
     )

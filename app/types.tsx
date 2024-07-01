@@ -1,16 +1,9 @@
 import { ImageSourcePropType } from "react-native";
 
-type TWeather = {
-    address: string;
-    datetime: Date;
-}
 
-type TWeatherCardProps = {
-    type: WeatherCard;
-    value: number
-}
+
 type WeatherCard =
-    | 'precipitation'
+    | 'rain'
     | 'humidity'
     | 'wind speed'
     | 'pressure'
@@ -19,60 +12,72 @@ type WeatherCard =
     | 'mintmp'
     | 'maxtmp';
 
-    type TWeatherCondition =
-    | 'clear night'
-    | 'sunny day'
-    | 'partly cloudy day'
-    |'partly cloudy night'
-    | 'cloudy day'
-    | 'cloudy night'
-    | 'overcast night'
-    | 'overcast day'
-    | 'mist night'
-    | 'mist day'
-    | 'fog night'
-    | 'fog day'
-    | 'lightRain day'
-    | 'lightRain night'
-    | 'rain day'
-    | 'rain night'
-    | 'thunderstorm night'
-    | 'thunderstorm day'
-    | 'snow day'
-    | 'snow night'
-    | 'hail day'
-    | 'hail night'
-    | 'Wind'
-    | 'Tornado'
-    | 'default';
-type TWeatherHourly = {
-        hour: string;
-        condition: TWeatherCondition;
-        precipitation: number;
-        temperature: number;
-    };
+ 
 
-type TWeatherForecast = {
-    location: string;
-    datetime: Date;
+type TWeatherCardProps = {
+    type: WeatherCard;
+    value: number
+}
+
+
+type TCurrentWeather = {
+    condition: string;
+    datetime: number;
     temperature: number;
     temperatureMax: number;
-    temperatureMin: number;
+    temperatureMin: number
     humidity: number;
-    precipitation: number;
+    feelsLike: number;
+    rain: number;
     pressure: number;
     windSpeed: number;
     cloudcover: number;
     uvindex: number;
-    sunrise: string;
-    sunset: string;
-    condition: TWeatherCondition;
-    hourly: TWeatherHourly[];
-    tenDayForecast: TWeatherForecast[];
-    icon?: string;
+    sunrise: number;
+    sunset: number;
+    icon: string;
+}
+type TDailyWeather = {
+    datetime: number; 
+    temperatureMax: number;
+    temperatureMin: number;
+    rain: number;
+    icon: string;
+    condition: string;
+    sunrise?: number;
+    sunset?: number;
 }
 
+type THourlyWeather = {
+    datetime: number;
+    condition: string;
+    humidity: number;
+    temperature: number;
+    icon: string
+};
+type TWeatherForecast = {
+    timezone_offset: number;
+    location: string;
+    current: TCurrentWeather;
+    hourly: THourlyWeather[];
+    daily: TDailyWeather[];
+}
+
+type TLocation = {
+    id?: number
+    place_id?: string
+    description?: string
+    city: string
+    country?: string
+    latitude: number
+    longitude: number
+}
+
+type TMyLocationStore = {
+    myLocation: TLocation,
+    setMyLocation: (location: TLocation) => void
+}
 // Define a type for weather images
 type TWeatherCard = Record<WeatherCard, ImageSourcePropType>;
 
-    export {TWeatherCardProps, TWeatherCard,WeatherCard, TWeather, TWeatherHourly, TWeatherCondition, TWeatherForecast}
+export { TWeatherCardProps, TWeatherCard, WeatherCard, THourlyWeather, TWeatherForecast, TLocation, TMyLocationStore, TDailyWeather }

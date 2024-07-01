@@ -1,16 +1,17 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { ScrollView } from 'react-native'
-import { TWeatherHourly } from './types'
+import { ScrollView } from 'react-native' 
 import WeatherInOneHour from './weather-in-one-hour'
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { THourlyWeather } from './types';
 
 type TProps = {
-    datas: TWeatherHourly[];
+    datas: THourlyWeather[];
+    timeZoneOffset: number;
 }
 export default function WeatherHourly(props: TProps) {
-    const { datas } = props;
+    const { datas, timeZoneOffset } = props;
 
     return (
         <View className="w-screen px-4  gap-1 mb-2 shadow-sm shadow-gray-300 bg-white">
@@ -20,7 +21,10 @@ export default function WeatherHourly(props: TProps) {
                 className="flex-row">
                 <View className="flex-row py-4">
                     {
-                        datas.map((data, index) => <WeatherInOneHour {...data} key={index}></WeatherInOneHour>)
+                        datas.map((data, index) => <WeatherInOneHour 
+                                                            data={data}
+                                                            timeZoneOffset={timeZoneOffset}
+                                                            key={index}/>)
                     }
                 </View>
             </ScrollView>

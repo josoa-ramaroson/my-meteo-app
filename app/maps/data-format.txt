@@ -1,0 +1,6 @@
+id: number
+place_id: string
+Description: string
+terms: city, state
+latiture: number 
+longitude: number

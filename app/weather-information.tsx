@@ -3,10 +3,10 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import WeatherCurrent from './weather-current';
 import WeatherDetails from './weather-details';
 import WeatherHourly from './weather-hourly';
-import { TWeatherCardProps, TWeatherForecast, TWeatherHourly } from './types';
-import WeatherDailyForecast from './weather-daily-forecast';
-import sampleWeatherForecasts from './sample-weather-forecast';
+import { TWeatherCardProps, TWeatherForecast, THourlyWeather } from './types';
+
 import SunriseSunset from './sunset-sunrise';
+import WeatherDailyForecast from './weather-daily-forecast';
 
 
 type TProps = {
@@ -16,58 +16,74 @@ export default function WeatherInformation(props: TProps) {
   const { data } = props;
 
   const {
+    current,
+    hourly,
+    daily,
+    timezone_offset
+  } = data;
+
+
+  const {
     condition,
     temperature,
     temperatureMax,
     temperatureMin,
+    icon,
+    feelsLike,
     sunrise,
-    sunset,
-    precipitation,
-    humidity,
-    windSpeed,
-    pressure,
-    uvindex,
-    cloudcover,
-    hourly,
-    tenDayForecast
-  } = data;
-  
-
+    sunset
+  } = current;
   const details: TWeatherCardProps[] = [
     {
-      type: 'precipitation',
-      value: precipitation
+      type: 'rain',
+      value: current.rain
     },
     {
       type: 'humidity',
-      value: humidity
+      value: current?.humidity ? current.humidity : 0
     },
     {
       type: 'wind speed',
-      value: windSpeed
+      value: current?.windSpeed ? current.windSpeed : 0
     },
     {
       type: 'pressure',
-      value: pressure
+      value: current?.pressure ? current.pressure : 0
     },
     {
       type: 'uv',
-      value: uvindex
+      value: current?.uvindex 
     },
     {
       type: 'cloudcover',
-      value: cloudcover
+      value: current?.cloudcover ? current.cloudcover : 0
     }
 
   ]
   return (
     <ScrollView className="w-full h-full">
       <View>
-        <WeatherCurrent condition={condition} temperature={temperature} maxTemperature={temperatureMax} minTemperature={temperatureMin} />
+        <WeatherCurrent
+          condition={condition}
+          temperature={temperature}
+          maxTemperature={temperatureMax}
+          minTemperature={temperatureMin}
+          icon={icon}
+        />
         <WeatherDetails details={details} />
-        <WeatherHourly datas={hourly} />
-        <WeatherDailyForecast datas={tenDayForecast} />
-        <SunriseSunset sunRiseHour={sunrise} sunSetHour={sunset} />
+        <WeatherHourly
+          datas={hourly}
+          timeZoneOffset={timezone_offset}
+        />
+        <WeatherDailyForecast
+          datas={daily}
+          timezoneOffset={timezone_offset}
+        />
+        <SunriseSunset
+          sunRiseHour={sunrise}
+          sunSetHour={sunset}
+          timezoneOffset={timezone_offset}
+        />
       </View>
     </ScrollView>
 
